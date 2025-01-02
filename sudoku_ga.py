@@ -36,7 +36,7 @@ def crossover(parent1, parent2):
 
 
 # Mutation: randomly swaps values in a row or column
-def mutation(sudoku, mutation_rate=0.01):
+def mutation(sudoku, mutation_rate):
     if random.random() < mutation_rate:
         row1, row2 = random.sample(range(9), 2)
         col1, col2 = random.sample(range(9), 2)
@@ -81,8 +81,8 @@ def elitism(population, fitness_scores, elite_size):
 
 
 # Genetic algorithm to solve Sudoku using GA
-def genetic_alg_sudoku(initial_sudoku=None, pop_size=100, generations=1000, mutation_rate=0.01, elite_size=10,
-                       max_no_improvement=100):
+def genetic_alg_sudoku(initial_sudoku, pop_size, generations, mutation_rate, elite_size,
+                       max_no_improvement):
     population = generate_initial_pop(pop_size, initial_sudoku)
     best_fitness = -1
     no_improvement = 0
